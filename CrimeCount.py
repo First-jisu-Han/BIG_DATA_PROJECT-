@@ -1,25 +1,25 @@
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
+import csv
 
 # 지역별 범죄 발생 빈도와 종류 분석을 통한 치안 관리 효율화 
 
-# API_Key= "[jGRnEP%2FmMvJx1xoDf7VVRaEKZHYagcn%2BiAgUGpY4SqyT8diNLCkfHgqOfsbYNXpoRw3XnwQQQwdO23DO2ju8Og%3D%3D]"
-# URL= "https://api.odcloud.kr/api/3074462/v1/uddi:10bde8f1-739c-4b66-b6a6-ccf5339a658e_201910221521?page=1&perPage=10"
 
-URL="http://116.67.77.182/openapi/SOCitysStats/"
+URL="http://116.67.77.182/openapi/SOCitysStats/"     # 성범죄 데이터 URL 
 rq=requests.get(URL)
-soup = BeautifulSoup(rq.text, "html.parser")
-# print(soup)
+soup = BeautifulSoup(rq.text, "html.parser")         # html로 이루어진 데이터들 파싱 
+
 city_name=[]
 city_count=[]
-for i in soup.find_all("city-name"):
+for i in soup.find_all("city-name"):                 # city_name 태그 단 것들 모두 city_name 리스트에 저장 
     city_name.append(i.text)   
-print(city_name)
 
-for i in soup.find_all("city-count"):
+for i in soup.find_all("city-count"):                # city_count 태그 단 것들 모두 city_count 리스트에 저장 
     city_count.append(i.text)
-print(city_count)
-    
+
+dict={'city_name':city_name,'city_cnt':city_count}     # panda 라이브러리 이용해서 csv로 저장한다. 
+df=pd.DataFrame(dict)
+df.to_csv("crimes.csv")
 
 
