@@ -2,19 +2,24 @@ import requests
 import pandas as pd
 from bs4 import BeautifulSoup
 
-# 지역별 범죄 발생 빈도와 종류를 통한 치안 관리 효율화 
+# 지역별 범죄 발생 빈도와 종류 분석을 통한 치안 관리 효율화 
 
-API_Key= "[jGRnEP%2FmMvJx1xoDf7VVRaEKZHYagcn%2BiAgUGpY4SqyT8diNLCkfHgqOfsbYNXpoRw3XnwQQQwdO23DO2ju8Og%3D%3D]"
-URL= "https://api.odcloud.kr/api/3074462/v1/uddi:10bde8f1-739c-4b66-b6a6-ccf5339a658e_201910221521?page=1&perPage=10"
+# API_Key= "[jGRnEP%2FmMvJx1xoDf7VVRaEKZHYagcn%2BiAgUGpY4SqyT8diNLCkfHgqOfsbYNXpoRw3XnwQQQwdO23DO2ju8Og%3D%3D]"
+# URL= "https://api.odcloud.kr/api/3074462/v1/uddi:10bde8f1-739c-4b66-b6a6-ccf5339a658e_201910221521?page=1&perPage=10"
 
+URL="http://116.67.77.182/openapi/SOCitysStats/"
 rq=requests.get(URL)
 soup = BeautifulSoup(rq.text, "html.parser")
+# print(soup)
+city_name=[]
+city_count=[]
+for i in soup.find_all("city-name"):
+    city_name.append(i.text)   
+print(city_name)
 
-crimes=[]
-for i in soup.find_all("data"):
-    crimes.append(i)
-print(crimes)
-
+for i in soup.find_all("city-count"):
+    city_count.append(i.text)
+print(city_count)
     
 
 
