@@ -9,14 +9,17 @@ import json
 
 
 # 공공데이터 인증키+오픈API 가져오기 
-URL = "https://api.odcloud.kr/api/3074462/v1/uddi:efafd73f-3310-48f8-9f56-bddc1c51f3ba_201910221541?page=1&perPage=10&serviceKey=jGRnEP%2FmMvJx1xoDf7VVRaEKZHYagcn%2BiAgUGpY4SqyT8diNLCkfHgqOfsbYNXpoRw3XnwQQQwdO23DO2ju8Og%3D%3D"
+URL="https://api.odcloud.kr/api/3074462/v1/uddi:efafd73f-3310-48f8-9f56-bddc1c51f3ba_201910221541?page=1&perPage=10&serviceKey=jGRnEP%2FmMvJx1xoDf7VVRaEKZHYagcn%2BiAgUGpY4SqyT8diNLCkfHgqOfsbYNXpoRw3XnwQQQwdO23DO2ju8Og%3D%3D"
+
 rq=requests.get(URL)
-soup = BeautifulSoup(rq.text, "html.parser")         # html로 이루어진 데이터들 파싱 
-# print(soup)
+soup=BeautifulSoup(rq.text, "html.parser")         # html로 이루어진 데이터들 파싱 
+
+print(soup)
+
 response=soup.text
 json_ob=json.loads(response)
 data = json_ob["data"]
-print(len(data[0]))   # 각 범죄유형에 따른 지역과 빈도수가 56개씩이라는 것을 확인 
+print(len(data[0]))  
 
 region=[]
 cnt=[]
