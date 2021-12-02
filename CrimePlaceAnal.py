@@ -26,33 +26,42 @@ for i in range(len(urlList)):
 soup=[]
 for i in range(len(rq)):
     soup.append(BeautifulSoup(rq[i].text, "html.parser"))        # html로 이루어진 데이터들 파싱 
-for i in range(len(soup)):
-    print(soup[i])
+# for i in range(len(soup)):
+#     print(soup[i])
 
 response=[]
 for i in range(len(soup)):
-    response.append(soup.text)
+    response.append(soup[i].text)
 
-# response1=soup1.text
+# response=soup.text
 # response2=soup2.text
 # response3=soup3.text 
 
-json_ob=json.loads(response1)
-json_ob=json.loads(response2) 
-data = json_ob["data"]
-print(len(data[0]))  
+json_ob=[] 
+print(len(response))
 
-# region=[]
-# cnt=[]
+for i in range(len(response)):
+    json_ob.append(json.loads(response[i]))
 
-# # data는 10개의 딕셔너리로 이루어져있기 때문에 각 딕셔너리를 순회하며 범죄-빈도를 각 리스트에 저장한다.
-# for i in range(len(data)):
-#     for key, val in data[i].items():
-#         region.append(key)
-#         cnt.append(val)
+data=[]
+for i in range(len(json_ob)):
+    data.append(json_ob[i]["data"])
 
-# # 범죄와 빈도 데이터들을 칼럼으로 대응시켜 저장 
-# dict={'city_name':region,'city_cnt':cnt}     # panda 라이브러리 이용해서 csv로 저장한다. 
-# df=pd.DataFrame(dict)
-# df.to_csv("crimes2.csv")
+print(data[0])
+
+crime=[]
+crimeInformation=[]
+
+# data는 10개의 딕셔너리로 이루어져있기 
+# 때문에 각 딕셔너리를 순회하며 범죄-빈도를 각 리스트에 저장한다.
+for i in range(len(data)):
+    for j in range(len(data[i])):
+        for key, val in (data[i][j]).items():
+            crime.append(key)
+            crimeInformation.append(val)
+
+# 범죄와 빈도 데이터들을 칼럼으로 대응시켜 저장 
+dict={'crime': crime ,'crime_information':crimeInformation}     # panda 라이브러리 이용해서 csv로 저장한다. 
+df=pd.DataFrame(dict)
+df.to_csv("crimes3.csv")
         
