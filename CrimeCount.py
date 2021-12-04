@@ -5,6 +5,8 @@ import csv
 
 # 지역별 범죄 발생 빈도와 종류 분석을 통한 치안 관리 효율화 
 
+#섬범죄 데이터 - 그냥 공개 웹URL을 따와서 크롤링하여 CSV파일화 한 것 
+
 
 URL="http://116.67.77.182/openapi/SOCitysStats/"     # 성범죄 데이터 URL 
 rq=requests.get(URL)

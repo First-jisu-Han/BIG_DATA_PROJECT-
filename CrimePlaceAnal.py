@@ -5,9 +5,6 @@ import csv
 import json
 
 
-
-
-
 # 공공데이터 인증키+오픈API 가져오기 
 # 범죄 발생 장소의 데이터 추출 
 
@@ -29,7 +26,9 @@ for i in range(len(urlList)):
 soup=[]
 for i in range(len(rq)):
     soup.append(BeautifulSoup(rq[i].text, "html.parser"))        # html로 이루어진 데이터들 파싱 
+    print(soup)
 
+len(rq)
 
 response=[]
 for i in range(len(soup)):
@@ -49,9 +48,7 @@ data=[]
 for i in range(len(json_ob)):
     data.append(json_ob[i]["data"])
 
-print(data[0])
 
-crime=[]
 crimeInformation=[]
 
 
@@ -59,14 +56,38 @@ crimeInformation=[]
 #정의 되어있고, 딕셔너리 안에 접근하려면 data[0][0]~data[0][데이터 0의 길이 ]
 # 해야 딕셔너리 한단위씩에 접근할 수 있기 때문에 중첩 반복문 사용했다. 
 
-for i in range(len(data)):
-    for j in range(len(data[i])):
-        for key, val in (data[i][j]).items():   # 딕셔너리 각각에 접근해서 안의 key값은 crime 에, value 값은 crimeInformation에 저장했다. 
-            crime.append(key)
-            crimeInformation.append(val)
+# for i in range(len(data)):
+#     for j in range(len(data[i])):
+#         for key, val in (data[i][j]).items():   # value 값만 따서 crimeInformation에 저장했다. 
+#             crimeInformation.append(val)
 
-# 범죄와 범죄장소 및 정보들을 저장해서 csv파일화를 하였다. 
-dict={'crime': crime ,'crime_information':crimeInformation}     # panda 라이브러리 이용해서 csv로 저장한다. 
-df=pd.DataFrame(dict)
-df.to_csv("crimes3.csv")
+
+
+# for i in crimeInformation:
+#     print(i)
+
+# #리스트 0 3 6 : 빈도 
+# #리스트 1 4 7 : 범행유형 
+# #리스트 2 5 8 : 범행 장소 
+
+# crimeCnt=[]
+# crimeType=[]
+# crimePlace=[]
+
+# for i in crimeInformation[0:len(crimeInformation):3]:
+#     crimeCnt.append(i)
+
+# for i in crimeInformation[1:len(crimeInformation):3]:
+#     crimeType.append(i)
+
+# for i in crimeInformation[2:len(crimeInformation):3]:
+#     crimePlace.append(i)  
+
+
+# # 범죄 빈도 , 범죄 타입 , 범죄 장소 데이터 리스트로 나눠서 코드 수정, 데이터 정리 
+# dict={'crime_cnt':crimeCnt  ,'crime_type':crimeType,'crime_place':crimePlace}     # panda 라이브러리 이용해서 csv로 저장한다. 
+# df=pd.DataFrame(dict)
+# df.to_csv("crimePlaceAnal.csv")
+
+
         
