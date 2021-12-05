@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import csv
 import json
 
-
 # 공공데이터 인증키+오픈API 가져오기 
 # 범죄 발생 장소의 데이터 추출 
 
