@@ -1,6 +1,7 @@
 # 빅데이터 프로젝트
 
-## 프로젝트 설명 Script URL =https://devjisu.notion.site/Docker-hdp-Ambari-sandbox-Apache-Hive-Python-46f6ea10b6e1437b8b1cb1850ea31d8c
+## 프로젝트 설명 URL =
+https://devjisu.notion.site/Docker-hdp-Ambari-sandbox-Apache-Hive-Python-46f6ea10b6e1437b8b1cb1850ea31d8c
 
 
 공공API 이용해서 범죄 지역,빈도 데이터추출, HiveQL 분석을 통한 방범시스템 효율성 극대화 프로젝트-Linux: Docker , HDP, Hive ,Python
