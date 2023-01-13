@@ -1,4 +1,8 @@
 # 빅데이터 프로젝트
+
+## 프로젝트 설명 Script URL =https://devjisu.notion.site/Docker-hdp-Ambari-sandbox-Apache-Hive-Python-46f6ea10b6e1437b8b1cb1850ea31d8c
+
+
 공공API 이용해서 범죄 지역,빈도 데이터추출, HiveQL 분석을 통한 방범시스템 효율성 극대화 프로젝트-Linux: Docker , HDP, Hive ,Python
 
 ##리눅스 기반 Docker 에서 hdp (분산 스토리지 및 대규모 멀티 소스 데이터 세트 처리를 위한 오픈소스 프레임워크) - Bs4로 공공데이터를 수집하고 이를 Ambari UI를 통한 HiveQL 사용하여 분석  
@@ -13,3 +17,5 @@
 <img width="781" alt="스크린샷 2022-06-03 오전 1 28 47" src="https://user-images.githubusercontent.com/66197538/171679187-da4c16e0-2d14-4225-a5bd-3c8134eeb4f3.png">
 <img width="793" alt="스크린샷 2022-06-03 오전 1 28 56" src="https://user-images.githubusercontent.com/66197538/171679196-7fc93ac6-94e4-4c49-8f0f-9bbe4978ec1f.png">
 <img width="801" alt="스크린샷 2022-06-03 오전 1 29 05" src="https://user-images.githubusercontent.com/66197538/171679201-967e718c-d308-412a-97af-40bb55466575.png">
+
+
